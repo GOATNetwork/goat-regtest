@@ -46,7 +46,7 @@ Update field `.Locking.validators` of `config.json` like following:
 Add voters
 
 ```sh
-./build/goatd ./build/goatd --home ./data/goat modgen keygen --tx --vote
+./build/goatd --home ./data/goat modgen keygen --tx --vote
 ```
 
 Keep the secrete keys and add the pubkeys to field `.Relayer.voters` of `config.json` like following:
@@ -83,7 +83,7 @@ The default owner address is
 {
   "Address": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
   "PrivateKey": "0xdd11c21661a3f7e62fe9d53dc38f85adc96e9bdf0be781d770b7789c545e107f",
-  "PublicKey": "0x04b46f2e2e387cbc2bfb541da34d5149256f593a3c175b18004ba21db23d2b8c2483c50b47633831832959aafa88fa5710dd4e649a3203564f6eef75ec5a5fd000"
+  "PublicKey": "0x02b46f2e2e387cbc2bfb541da34d5149256f593a3c175b18004ba21db23d2b8c24"
 }
 ```
 
@@ -97,7 +97,7 @@ cd submodule/contracts
 npm run genesis
 cp ./genesis/regtest.json ./genesis/config.json ../../data/geth
 cd -
-./build/geth init --datadir ./data/geth ./data/geth/regtest.json
+./build/geth init --db.engine pebble --datadir ./data/geth ./data/geth/regtest.json
 ./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/config.json ./data/geth/regtest.json
 ```
 

@@ -41,11 +41,15 @@
   },
   "Consensus": {
     "Relayer": {
-      "tssPubkey": "028d19c3a7e5c2861b4538109ce533e0d9fa3f750f4a5c2af94850e292c026f808",
+      "tssPubkey": "02b46f2e2e387cbc2bfb541da34d5149256f593a3c175b18004ba21db23d2b8c24",
       "acceptProposerTimeout": "1m"
     },
     "Bridge": {
       "minDepositInSat": 10000
+    },
+    "Locking": {
+      "exitDuration": "3600s",
+      "unlockDuration": "1800s"
     }
   }
 }
