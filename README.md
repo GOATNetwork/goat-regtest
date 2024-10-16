@@ -65,6 +65,18 @@ Keep the secrete keys and add the pubkeys to field `.Relayer.voters` of `config.
 }
 ```
 
+Update relayer tss group pubkey, it's the default pubkey for deposits
+
+```json
+{
+  "Consensus": {
+    "Relayer": {
+      "tssPubkey": "secp256k1/schnoor public key"
+    }
+  }
+}
+```
+
 The default owner address is
 
 ```json
