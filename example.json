@@ -1,0 +1,51 @@
+{
+  "GoatToken": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "transfers": [
+      {
+        "to": "0xbC10000000000000000000000000000000000004",
+        "value": "200000000ether"
+      }
+    ]
+  },
+  "GoatFoundation": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2"
+  },
+  "GoatDAO": {},
+  "Bridge": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "withdrawalTaxBP": 2,
+    "deposits": []
+  },
+  "Bitcoin": {
+    "height": 0,
+    "network": "regtest",
+    "hash": "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"
+  },
+  "WrappedBitcoin": {},
+  "Relayer": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "voters": []
+  },
+  "Locking": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "tokens": [
+      {
+        "address": "0x0000000000000000000000000000000000000000",
+        "weight": 12000,
+        "limit": "800000000000000000000",
+        "threshold": "10000000000000000000"
+      }
+    ],
+    "validators": []
+  },
+  "Consensus": {
+    "Relayer": {
+      "tssPubkey": "028d19c3a7e5c2861b4538109ce533e0d9fa3f750f4a5c2af94850e292c026f808",
+      "acceptProposerTimeout": "1m"
+    },
+    "Bridge": {
+      "minDepositInSat": 10000
+    }
+  }
+}

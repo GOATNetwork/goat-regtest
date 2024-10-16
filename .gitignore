@@ -3,3 +3,4 @@ data/geth
 data/goat
 !data/bitcoin.conf
 build
+config.json

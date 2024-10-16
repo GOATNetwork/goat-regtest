@@ -1,4 +1,4 @@
-init: goat geth contracts
+init: clean goat geth contracts
 
 goat:
 	mkdir -p build data/goat
