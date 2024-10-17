@@ -11,15 +11,14 @@
 
 ### Init
 
+Clone this repository
+
 ```
 git clone --recurse-submodules https://github.com/GOATNetwork/goat-regtest.git
 cd goat-regtest
-make init
 ```
 
-### Init genesis config
-
-Add validator
+Add validator to genesis
 
 ```sh
 cp example.json config.json
@@ -43,7 +42,7 @@ Update field `.Locking.validators` of `config.json` like following:
 }
 ```
 
-Add voters
+Add voters to genesis
 
 ```sh
 ./build/goatd --home ./data/goat modgen keygen --tx --vote
