@@ -18,6 +18,6 @@ clean:
 	rm -rf build
 	rm -rf data/regtest data/goat data/geth
 	rm -rf submodule/contracts/node_modules
-	rm config.json
+	rm -rf config.json
 	rm -rf submodule/contracts/cache submodule/contracts/artifacts submodule/contracts/typechain-types
 	rm -rf submodule/contracts/genesis/config.json submodule/contracts/genesis/regtest.json
