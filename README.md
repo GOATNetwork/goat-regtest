@@ -96,15 +96,22 @@ cd submodule/contracts
 npm run genesis
 cp ./genesis/regtest.json ./genesis/config.json ../../data/geth
 cd -
-./build/geth init --db.engine pebble --datadir ./data/geth ./data/geth/regtest.json
+./build/geth init --db.engine pebble --state.scheme path --datadir ./data/geth ./data/geth/regtest.json
 ./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/config.json ./data/geth/regtest.json
 ```
 
 ### Start
 
+geth(execution client)
+
 ```
-./build/geth --datadir ./data/geth --nodiscover
-./build/goatd start --home ./data/goat --api.enable --goat.geth ./data/geth/geth.ipc
+./build/geth --datadir ./data/geth --http --http.api=eth,net,web3 --nodiscover
+```
+
+goat(consensus client)
+
+```
+./build/goatd start --home ./data/goat --api.enable --goat.geth ./data/geth/geth.ipc --p2p.pex false
 ```
 
 ### Cleanup
