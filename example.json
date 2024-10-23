@@ -45,7 +45,8 @@
       "acceptProposerTimeout": "1m"
     },
     "Bridge": {
-      "minDepositInSat": 10000
+      "minDepositInSat": 10000,
+      "confirmationNumber": 1
     },
     "Locking": {
       "exitDuration": "3600s",
