@@ -22,7 +22,8 @@ Add validator to genesis
 
 ```sh
 cp example.json config.json
-./build/goatd init --home ./data/goat --chain-id regtest regtest
+make init
+./build/goatd --home ./data/goat modgen init --chain-id regtest regtest
 ./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2
 ```
 
@@ -45,7 +46,7 @@ Update field `.Locking.validators` of `config.json` like following:
 Add voters to genesis
 
 ```sh
-./build/goatd --home ./data/goat modgen keygen --tx --vote
+./build/goatd --home ./data/goat modgen relayer keygen
 ```
 
 Keep the secrete keys and add the pubkeys to field `.Relayer.voters` of `config.json` like following:

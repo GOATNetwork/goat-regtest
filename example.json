@@ -37,7 +37,8 @@
         "threshold": "10000000000000000000"
       }
     ],
-    "validators": []
+    "validators": [],
+    "allowList": []
   },
   "Consensus": {
     "Relayer": {
