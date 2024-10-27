@@ -48,6 +48,10 @@ jq --argjson new_data "$VOTER" '.Relayer.voters += [$new_data]' config.json > tm
 
 The output of the first line command above is the the private key of the tx key and vote key.
 
+Change other configuration fileds
+
+https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
+
 ### Create genesis
 
 ```sh
