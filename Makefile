@@ -17,3 +17,11 @@ contracts:
 clean:
 	rm -rf build
 	rm -rf data/goat data/geth
+	rm -rf submodule/contracts/artifacts
+	rm -rf submodule/contracts/cache
+	rm -rf submodule/contracts/genesis/regtest-config.json
+	rm -rf submodule/contracts/genesis/regtest.json
+	rm -rf submodule/contracts/typechain-types
+	rm -rf submodule/contracts/node_modules
+	rm -rf submodule/goat/build
+	rm -rf submodule/geth/build/bin

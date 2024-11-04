@@ -56,12 +56,11 @@ https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
 
 ```sh
 cp config.json submodule/contracts/genesis/regtest-config.json
-cd submodule/contracts
-npm run genesis
-cp ./genesis/regtest.json ./genesis/config.json ../../data/geth
-cd -
-./build/geth init --db.engine pebble --state.scheme path --datadir ./data/geth ./data/geth/regtest.json
-./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/config.json ./data/geth/regtest.json
+cp config.json ./data/geth/regtest-config.json
+npm --prefix submodule/contracts run genesis
+cp ./submodule/contracts/genesis/regtest.json ./data/geth
+./build/geth init --db.engine pebble --state.scheme hash --cache.preimages --datadir ./data/geth ./data/geth/regtest.json
+./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/regtest-config.json ./data/geth/regtest.json
 ```
 
 ### Start
@@ -69,7 +68,7 @@ cd -
 geth(execution client)
 
 ```
-./build/geth --datadir ./data/geth --http --http.api=eth,net,web3 --nodiscover
+./build/geth --datadir ./data/geth --gcmode=archive --http --http.api=eth,net,web3,debug --nodiscover
 ```
 
 goat(consensus client)
