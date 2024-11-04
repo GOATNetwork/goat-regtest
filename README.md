@@ -55,7 +55,7 @@ https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
 ### Create genesis
 
 ```sh
-cp config.json submodule/contracts/genesis
+cp config.json submodule/contracts/genesis/regtest-config.json
 cd submodule/contracts
 npm run genesis
 cp ./genesis/regtest.json ./genesis/config.json ../../data/geth
