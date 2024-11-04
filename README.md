@@ -23,7 +23,7 @@ Note: the default owner address and relayer tss group public key
 
 Clone this repository
 
-```
+```sh
 git clone --recurse-submodules https://github.com/GOATNetwork/goat-regtest.git
 cd goat-regtest
 ```
@@ -31,10 +31,9 @@ cd goat-regtest
 Add validator to genesis
 
 ```sh
-cp example.json config.json
 make init
+cp example.json config.json
 ./build/goatd --home ./data/goat modgen init --chain-id regtest regtest
-./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2
 VALIDATOR=$(./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2)
 jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.json > tmp.json && mv tmp.json config.json
 ```
@@ -55,25 +54,22 @@ https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
 ### Create genesis
 
 ```sh
-cp config.json submodule/contracts/genesis/regtest-config.json
-cp config.json ./data/geth/regtest-config.json
-npm --prefix submodule/contracts run genesis
-cp ./submodule/contracts/genesis/regtest.json ./data/geth
-./build/geth init --db.engine pebble --state.scheme hash --cache.preimages --datadir ./data/geth ./data/geth/regtest.json
-./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/regtest-config.json ./data/geth/regtest.json
+npm --prefix submodule/contracts run genesis -- --param ../../config.json
+./build/geth init --db.engine pebble --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
+./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json ./submodule/contracts/genesis/regtest.json
 ```
 
 ### Start
 
 geth(execution client)
 
-```
+```sh
 ./build/geth --datadir ./data/geth --gcmode=archive --http --http.api=eth,net,web3,debug --nodiscover
 ```
 
 goat(consensus client)
 
-```
+```sh
 ./build/goatd start --home ./data/goat --api.enable --goat.geth ./data/geth/geth.ipc --p2p.pex false
 ```
 

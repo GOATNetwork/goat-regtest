@@ -17,6 +17,7 @@ contracts:
 clean:
 	rm -rf build
 	rm -rf data/goat data/geth
+	rm -rf config.json
 	rm -rf submodule/contracts/artifacts
 	rm -rf submodule/contracts/cache
 	rm -rf submodule/contracts/genesis/regtest-config.json
