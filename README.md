@@ -32,7 +32,6 @@ Add validator to genesis
 
 ```sh
 make init
-cp example.json config.json
 ./build/goatd --home ./data/goat modgen init --chain-id regtest regtest
 VALIDATOR=$(./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2)
 jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.json > tmp.json && mv tmp.json config.json
@@ -47,15 +46,15 @@ jq --argjson new_data "$VOTER" '.Relayer.voters += [$new_data]' config.json > tm
 
 The output of the first line command above is the the private key of the tx key and vote key.
 
-Change other configuration fileds
+Change other configuration fields if you need
 
 https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
 
-### Create genesis
+### Initialize genesis state
 
 ```sh
-npm --prefix submodule/contracts run genesis -- --param ../../config.json
-./build/geth init --db.engine pebble --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
+npm --prefix submodule/contracts run genesis -- --param ../../config.json --faucet 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2 --amount 1000
+./build/geth init --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
 ./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json ./submodule/contracts/genesis/regtest.json
 ```
 
@@ -64,13 +63,13 @@ npm --prefix submodule/contracts run genesis -- --param ../../config.json
 geth(execution client)
 
 ```sh
-./build/geth --datadir ./data/geth --gcmode=archive --http --http.api=eth,net,web3,debug --nodiscover
+./build/geth --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
 ```
 
 goat(consensus client)
 
 ```sh
-./build/goatd start --home ./data/goat --api.enable --goat.geth ./data/geth/geth.ipc --p2p.pex false
+./build/goatd start --home ./data/goat --p2p.pex false --goat.geth ./data/geth/geth.ipc --goat.preset=rpc
 ```
 
 ### Cleanup

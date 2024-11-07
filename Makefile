@@ -1,4 +1,5 @@
 init: clean goat geth contracts
+	cp example.json config.json
 
 goat:
 	mkdir -p build data/goat

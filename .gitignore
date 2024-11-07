@@ -4,3 +4,4 @@ data/goat
 !data/bitcoin.conf
 build
 config.json
+test.sh
