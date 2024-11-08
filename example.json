@@ -13,9 +13,16 @@
   },
   "GoatDAO": {},
   "Bridge": {
+    "confirmationNumber": 1,
+    "depositPrefixMagic": "GTV0",
+    "depositTaxBP": 20,
+    "deposits": [],
+    "maxDepositTaxInSat": "100000",
+    "maxWithdrawalTaxInSat": "200000",
+    "minDepositInSat": "100000",
+    "minWithdrawalInSat": "10000",
     "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
-    "withdrawalTaxBP": 2,
-    "deposits": []
+    "withdrawalTaxBP": 2
   },
   "Bitcoin": {
     "height": 0,

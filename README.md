@@ -32,7 +32,7 @@ Add validator to genesis
 
 ```sh
 make init
-./build/goatd --home ./data/goat modgen init --chain-id regtest regtest
+./build/goatd --home ./data/goat modgen init --regtest --chain-id regtest regtest
 VALIDATOR=$(./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2)
 jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.json > tmp.json && mv tmp.json config.json
 ```
@@ -55,8 +55,10 @@ https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
 ```sh
 npm --prefix submodule/contracts run genesis -- --param ../../config.json --faucet 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2 --amount 1000
 ./build/geth init --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
-./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json ./submodule/contracts/genesis/regtest.json
+./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json
 ```
+
+You will have 1,000 BTC in the the default address.
 
 ### Start
 
@@ -69,7 +71,7 @@ geth(execution client)
 goat(consensus client)
 
 ```sh
-./build/goatd start --home ./data/goat --p2p.pex false --goat.geth ./data/geth/geth.ipc --goat.preset=rpc
+./build/goatd start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
 ```
 
 ### Cleanup

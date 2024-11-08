@@ -1,4 +1,4 @@
-init: clean goat geth contracts
+init: precheck clean goat geth contracts
 	cp example.json config.json
 
 goat:
@@ -27,3 +27,9 @@ clean:
 	rm -rf submodule/contracts/node_modules
 	rm -rf submodule/goat/build
 	rm -rf submodule/geth/build/bin
+
+precheck:
+	node --version
+	go version
+	docker --version
+	docker compose version
