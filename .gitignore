@@ -5,3 +5,4 @@ data/goat
 build
 config.json
 test.sh
+/node_modules

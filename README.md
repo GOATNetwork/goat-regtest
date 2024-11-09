@@ -19,59 +19,28 @@ Note: the default owner address and relayer tss group public key
 }
 ```
 
-### Init
+You will have 1,000 BTC in the the address by default
 
-Clone this repository
+### Quick start
 
 ```sh
 git clone --recurse-submodules https://github.com/GOATNetwork/goat-regtest.git
 cd goat-regtest
+make update init start
 ```
 
-Add validator to genesis
+Now you have a web3 jsonrpc on 8545 port and consensus rest api on 1317 port
+
+### Logs
 
 ```sh
-make init
-./build/goatd --home ./data/goat modgen init --regtest regtest
-VALIDATOR=$(./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2)
-jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.json > tmp.json && mv tmp.json config.json
+pm2 logs
 ```
 
-Add voters to genesis
+### Stop
 
 ```sh
-VOTER=$(./build/goatd --home ./data/goat modgen relayer keygen)
-jq --argjson new_data "$VOTER" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
-```
-
-The output of the first line command above is the the private key of the tx key and vote key.
-
-Change other configuration fields if you need
-
-https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts
-
-### Initialize genesis state
-
-```sh
-npm --prefix submodule/contracts run genesis -- --param ../../config.json --faucet 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2 --amount 1000
-./build/geth init --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
-./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json
-```
-
-You will have 1,000 BTC in the the default address.
-
-### Start
-
-geth(execution client)
-
-```sh
-./build/geth --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
-```
-
-goat(consensus client)
-
-```sh
-./build/goatd start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
+make stop
 ```
 
 ### Cleanup
@@ -79,3 +48,7 @@ goat(consensus client)
 ```sh
 make clean
 ```
+
+### Config
+
+If you want to have your own setup, please check out the Makefile script and the [config defination file](https://github.com/GOATNetwork/goat-contracts/blob/main/task/deploy/param.ts)
