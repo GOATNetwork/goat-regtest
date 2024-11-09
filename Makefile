@@ -12,8 +12,8 @@ geth:
 	cp submodule/geth/build/bin/geth build
 
 contracts:
-	npm ci --prefix submodule/contracts
-	npm --prefix submodule/contracts run compile
+	npm ci --engine-strict --prefix submodule/contracts
+	npm --prefix submodule/contracts --engine-strict run compile
 
 clean:
 	rm -rf build
@@ -33,3 +33,4 @@ precheck:
 	go version
 	docker --version
 	docker compose version
+	jq --version

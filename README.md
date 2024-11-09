@@ -32,7 +32,7 @@ Add validator to genesis
 
 ```sh
 make init
-./build/goatd --home ./data/goat modgen init --regtest --chain-id regtest regtest
+./build/goatd --home ./data/goat modgen init --regtest regtest
 VALIDATOR=$(./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2)
 jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.json > tmp.json && mv tmp.json config.json
 ```
