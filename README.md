@@ -26,7 +26,7 @@ You will have 1,000 BTC in the the address by default
 ```sh
 git clone --recurse-submodules https://github.com/GOATNetwork/goat-regtest.git
 cd goat-regtest
-make update init start
+make init start
 ```
 
 Now you have a web3 jsonrpc on 8545 port and consensus rest api on 1317 port
@@ -34,7 +34,7 @@ Now you have a web3 jsonrpc on 8545 port and consensus rest api on 1317 port
 ### Logs
 
 ```sh
-pm2 logs
+make logs
 ```
 
 ### Stop

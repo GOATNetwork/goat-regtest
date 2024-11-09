@@ -1,4 +1,4 @@
-init: precheck clean goat geth contracts
+init: precheck update clean goat geth contracts
 	cp example.json config.json
 	sh ./init.sh
 	command -v pm2 || npm install pm2 -g
@@ -29,17 +29,7 @@ contracts:
 	npm --prefix submodule/contracts --engine-strict run compile
 
 clean: stop
-	rm -rf build
-	rm -rf data/goat data/geth
-	rm -rf config.json
-	rm -rf submodule/contracts/artifacts
-	rm -rf submodule/contracts/cache
-	rm -rf submodule/contracts/genesis/regtest-config.json
-	rm -rf submodule/contracts/genesis/regtest.json
-	rm -rf submodule/contracts/typechain-types
-	rm -rf submodule/contracts/node_modules
-	rm -rf submodule/goat/build
-	rm -rf submodule/geth/build/bin
+	rm -rf build data/goat data/geth
 
 web3:
 	@./build/geth attach --datadir ./data/geth
