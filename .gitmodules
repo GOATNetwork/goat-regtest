@@ -1,12 +1,12 @@
 [submodule "submodule/contracts"]
 	path = submodule/contracts
 	url = https://github.com/goatnetwork/goat-contracts
-	branch = testnet-2
+	branch = testnet
 [submodule "submodule/goat"]
 	path = submodule/goat
 	url = https://github.com/goatnetwork/goat
-	branch = testnet-2
+	branch = testnet
 [submodule "submodule/geth"]
 	path = submodule/geth
 	url = https://github.com/goatnetwork/goat-geth
-	branch = testnet-2
+	branch = testnet
