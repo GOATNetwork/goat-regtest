@@ -1,7 +1,7 @@
 [submodule "submodule/contracts"]
 	path = submodule/contracts
 	url = https://github.com/goatnetwork/goat-contracts
-	branch = testnet
+	branch = main
 [submodule "submodule/goat"]
 	path = submodule/goat
 	url = https://github.com/goatnetwork/goat
@@ -9,4 +9,4 @@
 [submodule "submodule/geth"]
 	path = submodule/geth
 	url = https://github.com/goatnetwork/goat-geth
-	branch = testnet
+	branch = upstream-1-14-12
