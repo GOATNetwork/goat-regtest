@@ -14,7 +14,7 @@
   "GoatDAO": {},
   "Bridge": {
     "confirmationNumber": 1,
-    "depositPrefixMagic": "GTV0",
+    "depositPrefixMagic": "GOAT",
     "depositTaxBP": 20,
     "deposits": [],
     "maxDepositTaxInSat": "100000",
@@ -22,7 +22,7 @@
     "minDepositInSat": "100000",
     "minWithdrawalInSat": "10000",
     "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
-    "withdrawalTaxBP": 2
+    "withdrawalTaxBP": 20
   },
   "Bitcoin": {
     "height": 0,
@@ -57,8 +57,16 @@
       "confirmationNumber": 1
     },
     "Locking": {
-      "exitDuration": "3600s",
-      "unlockDuration": "1800s"
+      "unlockDuration": "1m",
+      "exitDuration": "10m",
+      "downtimeJailDuration": "1m",
+      "halvingInterval": 42048000,
+      "initialBlockReward": "2378234400000000000",
+      "maxMissedPerWindow": 200,
+      "maxValidators": 20,
+      "signedBlocksWindow": 1200,
+      "slashFractionDoubleSign": 0.05,
+      "slashFractionDowntime": 0.01
     }
   }
 }
