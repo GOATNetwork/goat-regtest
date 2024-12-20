@@ -12,6 +12,6 @@ jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.j
 VOTER=$(./build/goatd --home ./data/goat modgen relayer keygen --output 1.json)
 jq --argjson new_data "$VOTER" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
 
-npm --prefix submodule/contracts run genesis -- --param ../../config.json --faucet $OWNER --amount 1000
+npm --prefix submodule/contracts run genesis -- --param ../../config.json
 ./build/geth init --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
 ./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json

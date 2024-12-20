@@ -68,5 +68,10 @@
       "slashFractionDoubleSign": 0.05,
       "slashFractionDowntime": 0.01
     }
+  },
+  "Balances": {
+    "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2": {
+      "balance": "1000ether"
+    }
   }
 }
