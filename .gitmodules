@@ -9,4 +9,4 @@
 [submodule "submodule/geth"]
 	path = submodule/geth
 	url = https://github.com/goatnetwork/goat-geth
-	branch = upstream-1-14-13
+	branch = upstream-1-14-12
