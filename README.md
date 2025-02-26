@@ -3,8 +3,8 @@
 ## Prerequisite
 
 - docker/docker-compose
-- go 1.23
-- node lts
+- go
+- node
 - jq
 
 ### Quick start
