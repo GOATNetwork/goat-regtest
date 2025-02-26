@@ -1,18 +1,18 @@
 init: precheck update clean goat geth contracts
+	npm ci
 	cp example.json config.json
 	sh ./init.sh
-	command -v pm2 || npm install pm2 -g
 
 start:
-	pm2 start ./build/geth -- --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
-	pm2 start ./build/goatd -- start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
+	./node_modules/.bin/pm2 start ./build/geth -- --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
+	./node_modules/.bin/pm2 start ./build/goatd -- start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
 
 stop:
-	pm2 delete all || echo "stopped"
-	pm2 flush
+	./node_modules/.bin/pm2 delete all || echo "stopped"
+	./node_modules/.bin/pm2 flush
 
 logs:
-	pm2 logs all
+	./node_modules/.bin/pm2 logs all
 
 goat:
 	mkdir -p build data/goat
