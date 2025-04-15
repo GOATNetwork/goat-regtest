@@ -1,4 +1,4 @@
-init: precheck update clean goat geth contracts
+init: precheck clean goat geth contracts
 	npm ci
 	cp example.json config.json
 	sh ./init.sh
@@ -40,6 +40,3 @@ precheck:
 	docker --version
 	docker compose version
 	jq --version
-
-update:
-	git submodule update
