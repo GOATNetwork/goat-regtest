@@ -4,15 +4,15 @@ init: precheck clean goat geth contracts
 	sh ./init.sh
 
 start:
-	./node_modules/.bin/pm2 start ./build/geth -- --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
-	./node_modules/.bin/pm2 start ./build/goatd -- start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
+	npx pm2 start ./build/geth -- --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
+	npx pm2 start ./build/goatd -- start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
 
 stop:
-	./node_modules/.bin/pm2 delete all || echo "stopped"
-	./node_modules/.bin/pm2 flush
+	npx pm2 delete all || echo "stopped"
+	npx pm2 flush
 
 logs:
-	./node_modules/.bin/pm2 logs all
+	npx pm2 logs all
 
 goat:
 	mkdir -p build data/goat
